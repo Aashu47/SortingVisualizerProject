@@ -1,12 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+  
 #container{
+    margin-top: 150px;
     height:250px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap:3px;
+    gap:5px;
+    
 }
 
 .bar{
     background-color: black;
-    width:20px;
+    width:10px;
 }

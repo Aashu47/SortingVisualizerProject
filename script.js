@@ -1,5 +1,5 @@
 
-const  n=20;
+const  n=25;
 const array=[];
 
 init();
@@ -83,7 +83,7 @@ function showBars(move){
     container.innerHTML = "";
     for(let i=0; i<array.length; i++){
         const bar =document.createElement("div");
-        bar.style.height = array[i]*100+"%";
+        bar.style.height = array[i]*170+"%";
         bar.classList.add("bar");
 
         if(move && move.indices.includes(i)){
