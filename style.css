@@ -1,0 +1,12 @@
+#container{
+    height:250px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap:3px;
+}
+
+.bar{
+    background-color: black;
+    width:20px;
+}
