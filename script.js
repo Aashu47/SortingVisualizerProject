@@ -1,6 +1,6 @@
 const n = 25;
 const array = [];
-let speed = 50;
+let speed = 60;
 let currentAlgorithm = "bubbleSort";
 
 init();
@@ -37,25 +37,26 @@ function init() {
 }
 
 // Play button
+
 function play() {
-  const copy = [...array];
-  let moves = [];
-
-  if (currentAlgorithm === "bubbleSort") {
-    moves = bubbleSort(copy);
-  } else if (currentAlgorithm === "selectionSort") {
-    moves = selectionSort(copy);
-  } else if (currentAlgorithm === "mergeSort") {
-    mergeSort(copy, 0, copy.length - 1);
-    moves = copy.moves;
-  } else if (currentAlgorithm === "quickSort") {
-    quickSort(copy, 0, copy.length - 1);
-    moves = copy.moves;
+    const copy = [...array];
+    let moves = [];
+  
+    if (currentAlgorithm === "bubbleSort") {
+      moves = bubbleSort(copy);
+    } else if (currentAlgorithm === "selectionSort") {
+      moves = selectionSort(copy);
+    } else if (currentAlgorithm === "mergeSort") {
+      mergeSort(copy, 0, copy.length - 1);
+      moves = copy.moves;
+    } else if (currentAlgorithm === "quickSort") {
+      quickSort(copy, 0, copy.length - 1);
+      moves = copy.moves;
+    }
+  
+    animate(moves);
   }
-
-  animate(moves);
-}
-
+  
 // Animate
 function animate(moves) {
   if (moves.length === 0) {
@@ -81,9 +82,9 @@ function animate(moves) {
 // Change Speed
 function changeSpeed(newSpeed) {
     if (newSpeed === "slow") {
-    speed = 100;
+    speed = 200;
     } else if (newSpeed === "fast") {
-    speed = 10;
+    speed = 8;
     }
     }
 
