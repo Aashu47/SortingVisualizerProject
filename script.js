@@ -30,11 +30,19 @@ function playNote(freq) {
 
 // Initialize button
 function init() {
-  for (let i = 0; i < n; i++) {
-    array[i] = Math.random();
+    const nInput = document.getElementById("nInput");
+    const nValue = parseInt(nInput.value);
+    if (!isNaN(nValue) && nValue > 0) {
+      array.length = 0; // Clear the array
+      for (let i = 0; i < nValue; i++) {
+        array.push(Math.random());
+      }
+      showBars();
+    } else {
+      alert("Please enter a valid positive number for 'n'.");
+    }
   }
-  showBars();
-}
+  
 
 // Play button
 
@@ -82,9 +90,9 @@ function animate(moves) {
 // Change Speed
 function changeSpeed(newSpeed) {
     if (newSpeed === "slow") {
-    speed = 200;
+    speed = 500;
     } else if (newSpeed === "fast") {
-    speed = 8;
+    speed = 2;
     }
     }
 
@@ -125,101 +133,100 @@ function selectionSort(array) {
 }
 
 function mergeSort(array, left, right) {
-  if (left < right) {
-    const mid = Math.floor((left + right) / 2);
-    mergeSort(array, left, mid);
-    mergeSort(array, mid + 1, right);
-    merge(array, left, mid, right);
+    if (left < right) {
+      const mid = Math.floor((left + right) / 2);
+      mergeSort(array, left, mid);
+      mergeSort(array, mid + 1, right);
+      merge(array, left, mid, right);
+    }
   }
-}
-
-function merge(array, left, mid, right) {
-  const n1 = mid - left + 1;
-  const n2 = right - mid;
-  const leftArr = new Array(n1);
-  const rightArr = new Array(n2);
-
-  for (let i = 0; i < n1; i++) {
-    leftArr[i] = array[left + i];
-  }
-  for (let j = 0; j < n2; j++) {
-    rightArr[j] = array[mid + 1 + j];
-  }
-
-  let i = 0;
-  let j = 0;
-  let k = left;
-
-  const moves = [];
-
-  while (i < n1 && j < n2) {
-    moves.push({ indices: [left + i, mid + 1 + j], type: "comp" });
-    if (leftArr[i] <= rightArr[j]) {
+  
+  function merge(array, left, mid, right) {
+    const n1 = mid - left + 1;
+    const n2 = right - mid;
+    const leftArr = new Array(n1);
+    const rightArr = new Array(n2);
+  
+    for (let i = 0; i < n1; i++) {
+      leftArr[i] = array[left + i];
+    }
+    for (let j = 0; j < n2; j++) {
+      rightArr[j] = array[mid + 1 + j];
+    }
+  
+    let i = 0;
+    let j = 0;
+    let k = left;
+  
+    const moves = [];
+  
+    while (i < n1 && j < n2) {
+      moves.push({ indices: [left + i, mid + 1 + j], type: "comp" });
+      if (leftArr[i] <= rightArr[j]) {
+        array[k] = leftArr[i];
+        i++;
+      } else {
+        array[k] = rightArr[j];
+        j++;
+      }
+      moves.push({ indices: [k], type: "swap" });
+      k++;
+    }
+  
+    while (i < n1) {
       array[k] = leftArr[i];
+      moves.push({ indices: [k], type: "swap" });
       i++;
-    } else {
+      k++;
+    }
+  
+    while (j < n2) {
       array[k] = rightArr[j];
+      moves.push({ indices: [k], type: "swap" });
       j++;
+      k++;
     }
-    moves.push({ indices: [k], type: "swap" });
-    k++;
+  
+    // Storing the moves in the array parameter
+    array.moves = moves;
   }
-
-  while (i < n1) {
-    array[k] = leftArr[i];
-    moves.push({ indices: [k], type: "swap" });
-    i++;
-    k++;
-  }
-
-  while (j < n2) {
-    array[k] = rightArr[j];
-    moves.push({ indices: [k], type: "swap" });
-    j++;
-    k++;
-  }
-
-  // Storing the moves in the array parameter
-  array.moves = moves;
-}
-
-function quickSort(array, low, high) {
-  if (low < high) {
-    const pivotIndex = partition(array, low, high);
-    quickSort(array, low, pivotIndex - 1);
-    quickSort(array, pivotIndex + 1, high);
-  }
-}
-
-function partition(array, low, high) {
-  const pivot = array[high];
-  let i = low - 1;
-  const moves = [];
-
-  for (let j = low; j <= high - 1; j++) {
-    moves.push({ indices: [j, high], type: "comp" });
-    if (array[j] < pivot) {
-      i++;
-      moves.push({ indices: [i, j], type: "swap" });
-      [array[i], array[j]] = [array[j], array[i]];
+  
+  function quickSort(array, low, high) {
+    if (low < high) {
+      const pivotIndex = partition(array, low, high);
+      quickSort(array, low, pivotIndex - 1);
+      quickSort(array, pivotIndex + 1, high);
     }
   }
-  moves.push({ indices: [i + 1, high], type: "swap" });
-  [array[i + 1], array[high]] = [array[high], array[i + 1]];
-
-  // Storing the moves in the array parameter
-  array.moves = moves;
-
-  return i + 1;
-}
+  
+  function partition(array, low, high) {
+    const pivot = array[high];
+    let i = low;
+    const moves = [];
+  
+    for (let j = low; j < high; j++) {
+      moves.push({ indices: [j, high], type: "comp" });
+      if (array[j] < pivot) {
+        moves.push({ indices: [i, j], type: "swap" });
+        [array[i], array[j]] = [array[j], array[i]];
+        i++;
+      }
+    }
+    moves.push({ indices: [i, high], type: "swap" });
+    [array[i], array[high]] = [array[high], array[i]];
+  
+    // Storing the moves in the array parameter
+    array.moves = moves;
+  
+    return i;
+  }
+  
 
 // Change Algorithm
-
 function changeAlgorithm() {
     const selectElement = document.getElementById("algorithmSelect");
     currentAlgorithm = selectElement.value;
-    }
-
+  }
 // Bars
 
 function showBars(move) {
