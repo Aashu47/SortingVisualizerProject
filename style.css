@@ -6,8 +6,9 @@
 
   
 #container{
-    margin-top: 150px;
-    height:250px;
+
+    margin-top: 200px;
+    height:220px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -18,4 +19,25 @@
 .bar{
     background-color: black;
     width:10px;
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 60px;
+}
+
+.initlizeButtons{
+    display: flex;
+    gap: 8px;
+}
+
+.playButtons{
+    display: flex;
+    gap:8px;
 }
