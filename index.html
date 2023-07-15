@@ -12,19 +12,34 @@
     <div id="container"></div>
 
     <hr>
+<div class="buttons">
 
-    <div>
+    <div class="initlizeButtons">
+
+        <textarea id="nInput" placeholder="Enter the value of 'n'"></textarea>
+
         <button onClick="init()">Initialize</button>
-        <button onClick="play()">Play</button>
+
         <select id="algorithmSelect" onChange="changeAlgorithm()">
             <option value="bubbleSort">Bubble Sort</option>
             <option value="selectionSort">Selection Sort</option>
             <option value="mergeSort">Merge Sort</option>
             <option value="quickSort">Quick Sort</option>
         </select>
-        <button onClick="changeSpeed('slow')">Slow</button>
-        <button onClick="changeSpeed('fast')">Fast</button>
+
     </div>
+
+    <div class="playButtons">
+
+        <button onClick="play()">Play</button>
+
+        <button onClick="changeSpeed('slow')">Slow</button>
+
+        <button onClick="changeSpeed('fast')">Fast</button>
+
+    </div>
+
+</div>
 
     <script src="script.js"></script>
 </body>
