@@ -39,7 +39,7 @@ function init() {
       }
       showBars();
     } else {
-      alert("Please enter a valid positive number for 'n'.");
+    // alert("Please enter a valid positive number for 'n'.");
     }
   }
   
