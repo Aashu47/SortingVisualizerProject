@@ -16,30 +16,41 @@
 
     <div class="initlizeButtons">
 
-        <textarea id="nInput" placeholder="Enter the value of 'n'"></textarea>
+        <div class="button-org">
+            <textarea id="nInput" placeholder="Enter the value of 'n'"></textarea>
+          </div>
 
-        <button onClick="init()">Initialize</button>
-
-        <select id="algorithmSelect" onChange="changeAlgorithm()">
-            <option value="bubbleSort">Bubble Sort</option>
-            <option value="selectionSort">Selection Sort</option>
-            <option value="mergeSort">Merge Sort</option>
-            <option value="quickSort">Quick Sort</option>
-        </select>
-
+          <div class="button-org">
+            <button type="button" onClick="init()">Create</button>
+          </div>
+          
+          <div class="button-org">
+            <select id="algorithmSelect" onChange="changeAlgorithm()">
+              <option value="bubbleSort">Bubble Sort</option>
+              <option value="selectionSort">Selection Sort</option>
+              <option value="mergeSort">Merge Sort</option>
+              <option value="quickSort">Quick Sort</option>
+            </select>
+          </div>
     </div>
 
     <div class="playButtons">
 
-        <button onClick="play()">Play</button>
-
-        <button onClick="changeSpeed('slow')">Slow</button>
-
-        <button onClick="changeSpeed('fast')">Fast</button>
-
+        <div class="button-org">
+            <button type="button" onClick="play()">Play</button>
+          </div>
+          
+          <div class="button-org">
+            <button type="button" onClick="changeSpeed('slow')">Slow</button>
+          </div>
+          
+          <div class="button-org">
+            <button type="button" onClick="changeSpeed('fast')">Fast</button>
+          </div>
     </div>
 
 </div>
+
 
     <script src="script.js"></script>
 </body>
