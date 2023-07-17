@@ -2,6 +2,10 @@
 
 This is the "Sorting Visualizer" project. It is a simple web application that visually demonstrates various sorting algorithms like - Bubble Sort, Selction sort.
 
+## Live Link
+ https://aashu47.github.io/SortingVisualizerProject/
+
+
 ## Features
 
 - Visualize different sorting algorithms
