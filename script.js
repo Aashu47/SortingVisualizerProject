@@ -33,7 +33,7 @@ function init() {
     const nInput = document.getElementById("nInput");
     const nValue = parseInt(nInput.value);
     if (!isNaN(nValue) && nValue > 0) {
-      array.length = 0; // Clear the array
+      array.length = 0; 
       for (let i = 0; i < nValue; i++) {
         array.push(Math.random());
       }
