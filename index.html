@@ -7,50 +7,49 @@
     <link rel="Stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Sorting Visualizer</h1>
+        <h1>Sorting Visualizer</h1>
 
-    <div id="container"></div>
+        <div id="container"></div>
 
-    <hr class="custom-hr">
+        <hr class="custom-hr">
 
-<div class="buttons">
+        <div class="buttons">
 
-    <div class="initlizeButtons">
+            <div class="initlizeButtons">
 
-        <div class="bu">
-            <textarea id="nInput" placeholder="Enter the value of 'n'"></textarea>
-          </div>
+                <textarea id="nInput" placeholder="Enter the value of 'n'"></textarea>
+                
 
-          <div class="butt">
-            <select id="algorithmSelect" onChange="changeAlgorithm()">
-              <option value="bubbleSort">Bubble Sort</option>
-              <option value="selectionSort">Selection Sort</option>
-              <option value="mergeSort">Merge Sort</option>
-              <option value="quickSort">Quick Sort</option>
-            </select>
-          </div>
+            
+                    <select id="algorithmSelect" onChange="changeAlgorithm()">
+                    <option value="bubbleSort">Bubble Sort</option>
+                    <option value="selectionSort">Selection Sort</option>
+                    <option value="mergeSort">Merge Sort</option>
+                    <option value="quickSort">Quick Sort</option>
+                    </select>
+            
 
-          <div class="button-org">
-            <button type="button" onClick="init()">Create</button>
-          </div>
-    </div>
+                <div class="button-org">
+                    <button type="button" onClick="init()">Create</button>
+                </div>
+            </div>
 
-    <div class="playButtons">
+            <div class="playButtons">
 
-        <div class="button-org">
-            <button type="button" onClick="play()">Play</button>
-          </div>
-          
-          <div class="button-org">
-            <button type="button" onClick="changeSpeed('slow')">Slow</button>
-          </div>
-          
-          <div class="button-org">
-            <button type="button" onClick="changeSpeed('fast')">Fast</button>
-          </div>
-    </div>
+                <div class="button-org">
+                    <button type="button" onClick="play()">Play</button>
+                </div>
+                
+                <div class="button-org">
+                    <button type="button" onClick="changeSpeed('slow')">Slow</button>
+                </div>
+                
+                <div class="button-org">
+                    <button type="button" onClick="changeSpeed('fast')">Fast</button>
+                </div>
+            </div>
 
-</div>
+        </div>
 
 
     <script src="script.js"></script>
